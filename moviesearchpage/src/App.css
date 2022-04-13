@@ -1,0 +1,133 @@
+* {
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: white;
+  margin: 0;
+  background:url(../public/imgs/film.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  height: 100%;
+  user-select: none;
+}
+
+.movieBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  position: relative;
+  transform: rotateZ(30deg);
+  box-shadow: 0 0 10px greenyellow, 
+    0 0 20px greenyellow, 0 0 40px greenyellow, 
+    0 0 80px greenyellow;
+}
+
+.movieBox .rect {
+  height: 100vh;
+}
+
+.movieBox .rect .contentBox {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 4rem;
+  height: 100vh;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  transform-origin: top;
+  transform: rotateX(90deg);
+  user-select: none;
+}
+
+.movieBox .rect .contentBox h3 {
+  margin-bottom: 1.4rem;
+  font-size: 2rem;
+}
+
+.movieBox .rect .contentBox p {
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.movieBox .rect .contentBox ul {
+  font-size: 1.2rem;
+  margin-bottom: 1.4rem;
+  margin-left: 1.4rem;
+  align-self: flex-start;
+}
+
+.movieBox .rect .contentBox ul li {
+  margin-bottom: 0.4rem;
+} 
+
+.movieBox .rect img {
+  transform-origin: top;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.movieBox:hover {
+  animation: animate3 1s linear forwards;
+}
+
+.movieBox:hover .rect img{
+  animation: animate 1s linear forwards;
+}
+
+
+.movieBox:hover .rect .contentBox {
+  animation: animate2 1s linear forwards;
+}
+
+@keyframes animate {
+  100% {
+    transform: rotateX(90deg) translateY(0);
+  }
+}
+
+@keyframes animate2 {
+  100% {
+    transform: rotateX(0deg) translateY(-100%);
+  }
+}
+
+@keyframes animate3 {
+  100% {
+    transform: rotateZ(0deg);
+  }
+}

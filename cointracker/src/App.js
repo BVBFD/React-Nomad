@@ -60,13 +60,22 @@ const App = (props) => {
 
   return (
     <div>
+      {loading ? <strong>Loading...</strong> : null}
       <h1>
-        The Coins Top {loading ? '' : `${coins.length}`} Tracker{' '}
+        The Coins Top {loading ? '' : `${coins.length}`} Tracker
         <span>
           (Up and Down Mark Comparing the price with the price of 24 hours ago)
         </span>
+        <span>(The price is being updated every seconds)</span>
+        <span>
+          (When price goes up, background-color turn into &ensp;
+          <p className='blue'>Blue</p>)
+        </span>
+        <span>
+          (When price goes down, background-color turn into &ensp;
+          <p className='red'>Red</p>)
+        </span>
       </h1>
-      {loading ? <strong>Loading...</strong> : null}
       <ul>
         {coins.map((coin) => (
           <li
@@ -85,7 +94,7 @@ const App = (props) => {
               <span>
                 {coin.name} ({coin.symbol})&ensp;:&ensp;
               </span>
-              <span className='price'> {coin.quotes.USD.price}</span>
+              <span className='price'>$ {coin.quotes.USD.price} (USD)</span>
             </div>
             <span className='longAgoPrice'>
               {coin.quotes.USD.percent_change_24h === 0 ? (
